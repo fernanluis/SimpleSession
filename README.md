@@ -1,6 +1,8 @@
 # README
 
-Autenticación basada en sesiones de Rails
+Autenticación basada en sesiones de Rails.
+
+Fuente original: https://github.com/DanielMitiku/rails_session
 
 Este es un sistema de autenticación basado en sesión simple que se basa en rieles que puede servir como punto de partida para crear aplicaciones más complejas.
 
