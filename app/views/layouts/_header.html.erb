@@ -1,10 +1,19 @@
+<!-- Vista principar para renderizar. Link para Items, e inicar sesión -->
 <nav class="navbar mb-2">
   <div class="container-fuild">
+
     <div class="navbar-header">
-      <%= link_to "Items", "#" %>
+      <%= link_to "Items", root_path, class: "mx-2" %>
     </div>
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Sign up", signup_path %></li>
+
+    <%= if logged_in? %>
+    <ul class="nav navbar-right">
+      <li><%= link_to "Log_out", logout_path, class: "mx-2", method: :delete %></li>
+    </ul>
+    <% else %>
+    <ul class="nav navbar-right">
+      <li><%= link_to "Log in", login_path, class: "mx-2" %></li>
+      <li><%= link_to "Sign up", signup_path, class: "mx-2" %></li>
     </ul>
   </div>
 

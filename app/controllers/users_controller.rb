@@ -1,4 +1,7 @@
 class UsersController < ApplicationController
+  # A user can visit the anything without logging in. That's because we have to add this method
+  # to restrict users that are not logged in. The before_action.
+  before_action :logged_in_user, only: [:show]
 
   def show
     @user = User.find(params[:id])
@@ -11,8 +14,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      flash[:seccess] = "Welcome to app!"
-      redirecto_to @user
+      # Si te registrabas te pedía que inicies sesión. Entonces agregamos: log_in @user
+      log_in @user
+      flash[:seccess] = "Welcome!"
+      redirect_to @user
     else
       render 'new'
     end
